@@ -1,0 +1,36 @@
+{
+  "name": "prospect-iq",
+  "version": "2.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "tsx watch --ignore ./data/** --ignore ./.env server/index.ts",
+    "dev:client": "vite --port 5173",
+    "build": "tsc --noEmit && vite build",
+    "start": "tsx server/index.ts"
+  },
+  "dependencies": {
+    "@google/genai": "^2.29.1",
+    "@tailwindcss/vite": "^4.1.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "lucide-react": "^1.16.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "tailwindcss": "^4.1.4"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.14.1",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "@vitejs/plugin-react": "^4.4.1",
+    "concurrently": "^9.1.2",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.2"
+  }
+}

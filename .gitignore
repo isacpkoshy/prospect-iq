@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Production build artifacts
+dist/
+build/
+
+# Environment files and credentials
+.env
+.env.local
+.env.*.local
+*.dpapi
+
+# Local database state and user subscribers
+data/email_subscribers.json
+data/prospectiq_store.json
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Vite & TypeScript cache
+.vite/
+*.tsbuildinfo
