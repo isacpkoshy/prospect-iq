@@ -57,6 +57,9 @@ function escapeHtml(str: string): string {
  * Encrypt or decrypt UTF-8 JSON string using Windows Data Protection API (CurrentUser scope)
  */
 function dpapiProtect(plainText: string, filePath: string): void {
+  if (process.platform !== 'win32') {
+    return;
+  }
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
   const base64Input = Buffer.from(plainText, 'utf-8').toString('base64');
   const psScript = `
@@ -72,7 +75,7 @@ function dpapiProtect(plainText: string, filePath: string): void {
 }
 
 function dpapiUnprotect(filePath: string): string | null {
-  if (!fs.existsSync(filePath)) return null;
+  if (process.platform !== 'win32' || !fs.existsSync(filePath)) return null;
   try {
     const psScript = `
       Add-Type -AssemblyName System.Security
